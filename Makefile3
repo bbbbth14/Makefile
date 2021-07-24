@@ -1,0 +1,17 @@
+INC_DIRS = E:/Makefile/1.FirstLesson/include
+SRC_DIRS = E:/Makefile/1.FirstLesson/source
+OUT_DIRS = E:/Makefile/1.FirstLesson/output
+
+all: main.o sum.o build run
+
+main.o: $(SRC_DIRS)/main.c $(INC_DIRS)/sum.h
+	gcc -I $(INC_DIRS) -c $(SRC_DIRS)/main.c -o $(OUT_DIRS)/main.o
+
+sum.o: $(SRC_DIRS)/sum.c $(INC_DIRS)/sum.h
+	gcc -I $(INC_DIRS) -c $(SRC_DIRS)/sum.c -o $(OUT_DIRS)/sum.o 
+
+build: $(OUT_DIRS)/main.o $(OUT_DIRS)/sum.o
+	gcc $(OUT_DIRS)/main.o $(OUT_DIRS)/sum.o -o $(OUT_DIRS)/main.exe
+	
+run:
+	$(OUT_DIRS)/main.exe

@@ -1,0 +1,8 @@
+all: main.o build run
+
+main.o: main.c
+	gcc -c main.c -o main.o
+build: main.o
+	gcc -o main main.o
+run: 
+	./main

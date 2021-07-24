@@ -1,0 +1,15 @@
+
+all: main.o sum.o build run
+
+
+main.o: ./source/main.c ./include/sum.h
+	gcc -I ./include -c ./source/main.c -o ./output/main.o
+
+sum.o: ./source/sum.c ./include/sum.h
+	gcc -I ./include -c ./source/sum.c -o ./output/sum.o 
+
+build: ./output/main.o ./output/sum.o
+	gcc ./output/main.o ./output/sum.o -o ./output/main.exe
+	
+run:
+	./output/main.exe
